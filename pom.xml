@@ -1,55 +1,65 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.ravi</groupId>
-	<artifactId>HelloWorld</artifactId>
-	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>HelloWorld Maven Webapp</name>
-	<url>http://maven.apache.org</url>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.github.jitpack</groupId>
+  <artifactId>maven-simple</artifactId>
+  <version>1.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>Simple Maven example</name>
+  <url>https://jitpack.io/#jitpack/maven-simple/0.1</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  
   <build>
-    <finalName>HelloWorld</finalName>
-    <pluginManagement>
     <plugins>
-    <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-source-plugin</artifactId>
+               
+      <plugin>  <!-- Create sources.jar -->
+            <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+		  <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+      </plugin>
+            
+      <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+		  <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+      </plugin>
+<plugin>
+   <groupId>org.apache.maven.plugins</groupId>
+   <artifactId>maven-deploy-plugin</artifactId>
+      <executions>
+      <execution>
+         <id>default-deploy</id>
+         <phase>deploy</phase>
+         <goals>
+            <goal>deploy</goal>
+         </goals>
+ </execution>
+        </executions>
 	</plugin>
     </plugins>
-    </pluginManagement>
   </build>
-  
-  <dependencies>
-  <dependency>
-<groupId>junit</groupId>
-<artifactId>junit</artifactId>
-<version>4.12</version>
-</dependency>
-
-<dependency>
-<groupId>org.sonarsource.scanner.maven</groupId>
-<artifactId>sonar-maven-plugin</artifactId>
-<version>3.2</version>
-</dependency>
-
-<dependency>
-<groupId>org.seleniumhq.selenium</groupId>
-<artifactId>selenium-java</artifactId>
-<version>2.53.1</version>
-</dependency>
-
-<dependency>
-<groupId>org.seleniumhq.selenium</groupId>
-<artifactId>selenium-server</artifactId>
-<version>3.0.1</version>
-</dependency>
-
-<dependency>
-<groupId>org.testng</groupId>
-<artifactId>testng</artifactId>
-<version>6.9.10</version>
-</dependency>
-    
-</dependencies>
-
 </project>
